@@ -1,47 +1,46 @@
 // wait until the HTML document is fully loaded before running the script
 document.addEventListener("DOMContentLoaded", function(){
 
-    // shortcut to all the filter buttons in the HTML
+    // Create Shortcuts
     let btnFilters = document.querySelectorAll(".FilterBtn");
-
-    // shortcut to all the gallery items in the Gallery section
     let divGalleryItems = document.querySelectorAll("#Gallery .GalItem");
 
-    // function to apply the selected filter
+    // Create a function to apply the filter
     function applyFilter(category){
-        // convert the category to lowercase for easy matching
+        // change the words in the data-category in the Filterbtn class to all lowercase so it is easyier to call them in the js script
         let selectedCategory = category.toLowerCase();
 
-        // loop through each gallery item
+        // Check each gallery item if it matches the correct data category tag
+        //if it matches then it will be shown and if it doesnt it will be hidden
         divGalleryItems.forEach(function(item){
-            // get the category for the current gallery item
             let itemCategory = item.dataset.category.toLowerCase();
-
-            // if "all" is selected or the item's category matches, show it; otherwise hide it
+            
+            //If All is selected then it will display all of the gallery but if a differnt filter is selected it will only display approriate items.
             if (selectedCategory === "all" || itemCategory === selectedCategory){
-                item.style.display = ""; // show item
+                item.style.display = "";
             } else {
-                item.style.display = "none"; // hide item
+                item.style.display = "none";
             }
         });
     }
 
-    // loop through each filter button and set up a click event
+    // Setup a click event for each button
     btnFilters.forEach(function(button){
         button.addEventListener("click", function(){
-            // remove the active class from all buttons
+
+            // Once a new button is selected reset the active button so the style doesn't show it as still selected
             btnFilters.forEach(function(btn){
                 btn.classList.remove("active");
             });
 
-            // add the active class to the clicked button
+            // Make it so the new button that was just clicked now shows the Selected styling
             button.classList.add("active");
 
-            // apply the filter based on the clicked button's data-category
+            //apply the filter so that the data catergory matches the right item
             applyFilter(button.dataset.category);
         });
     });
 
-    // run the filter on page load to show all items by default
+    // make it so when you first click on gallery the All filter is automatically selected by defualt
     applyFilter("All");
 });
