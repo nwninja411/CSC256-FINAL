@@ -19,6 +19,7 @@ font-weight: normal;
 font-style: normal; 
 }
 
+/* Have colors go to the very edge of the page */
 body{
     margin: 0 auto;
 }
@@ -53,6 +54,7 @@ nav .Button:hover{
     background-color: #1d1d1d;
 }
 
+/* Clamps make it so that the item is responsive and scales better when the screen gets smaller */
 .Logo{
     width: clamp(110px, 12vw, 180px);
     height: auto;
@@ -73,6 +75,7 @@ header {
     padding: 64px 10vw;
 }
 
+/* I applied a negative margin here to pull the text upwards */
 header h1 {
     font-size: 5rem;
     margin: 0;
@@ -110,6 +113,7 @@ header .Button:hover {
     margin-left: 400px;
 }
 
+/* Im applying media queries so that the content fits some what on smaller screens */
 @media (max-width: 1400px){
     #AboutMe{
         margin-left: 200px;
@@ -130,6 +134,7 @@ header .Button:hover {
     align-items: center;
 }
 
+/* Here Im making the text and image stack verticaly instead of being side by side */
 @media (max-width: 950px) {
     #HomePage {
         grid-template-columns: 1fr;
