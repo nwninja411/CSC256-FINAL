@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+        <!-- Create the Navigation Bar -->
+        <nav>
+            <img src="Logo.png" alt="Silent Kid Productions Logo" class="Logo">
+            <a href="index.html" class="Button">Home</a>
+            <a href="gallery.html" class="Button">Gallery</a>
+            <a href="contact.html" class="Button">Contact</a>
+        </nav>
+
+        <header>
+            <h1>Gallery</h1>
+        </header>
+
+        <!-- Create the buttons that will be used to sort my content -->
+        <div id="Filter">
+            <button class="FilterBtn" type="button" data-category="All">All</button>
+            <button class="FilterBtn" type="button" data-category="Comp">Compositing</button>
+            <button class="FilterBtn" type="button" data-category="Editing">Editing</button>
+            <button class="FilterBtn" type="button" data-category="Sound">Sound Design</button>
+            <button class="FilterBtn" type="button" data-category="MotionGraphics">Motion Graphics</button>
+        </div>
+
+    <main>
+
+        <!-- Create the section which will hold all my gallery Content -->
+        <!-- To add more content copy and paste a div tag and update the src="" and the <p> tag -->
+        <section id="Gallery">
+            <div class="GalItem" data-category="MotionGraphics">
+                <video controls>
+                    <source src="Videos/TitleSequence.mp4" type="video/mp4">
+                </video>
+                <p>Title Sequence</p>
+            </div>
+
+            <div class="GalItem" data-category="Editing">
+                <video controls>
+                    <source src="Videos/TheSpa_ColorCorrected.mp4" type="video/mp4">
+                </video>
+                <p>The Spa: My Edit</p>
+            </div>
+
+            <div class="GalItem" data-category="Comp">
+                <video controls>
+                    <source src="Videos/CompostingOnBlack.mp4" type="video/mp4">
+                </video>
+                <p>Ship Over Earth</p>
+            </div>
+
+            <div class="GalItem" data-category="Editing">
+                <video controls>
+                    <source src="Videos/Conceptual Shooting.mp4" type="video/mp4">
+                </video>
+                <p>Conceptual Shooting</p>
+            </div>
+
+            <div class="GalItem" data-category="Editing">
+                <video controls>
+                    <source src="Videos/Antilittering_PSA.mp4" type="video/mp4">
+                </video>
+                <p>Anti-Littering PSA</p>
+            </div>
+
+            <div class="GalItem" data-category="Editing">
+                <video controls>
+                    <source src="Videos/Morning Routine.mp4" type="video/mp4">
+                </video>
+                <p>Morning Routine</p>
+            </div>
+            
+            <div class="GalItem" data-category="Sound">
+                <video controls>
+                    <source src="Videos/AlienSoundScape.mp4" type="video/mp4">
+                </video>
+                <p>Alien SoundScape</p>
+            </div>
+        </section>
+    </main>
+
+        <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('.FilterBtn');
+            const items = document.querySelectorAll('#Gallery .GalItem');
+
+            function applyFilter(category) {
+                const cat = category.toLowerCase();
+                items.forEach(item => {
+                    const itemCat = item.dataset.category.toLowerCase();
+                    item.style.display = (cat === 'all' || itemCat === cat) ? '' : 'none';
+                });
+            }
+
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    buttons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    applyFilter(btn.dataset.category);
+                });
+            });
+
+            applyFilter('All');
+        });
+    </script>
+
+    <!-- Create a footer with a link to the Contact page -->
+    <footer>
+        <div id="ContactMe">
+            <h1>Get in Touch</h1>
+            <a href="contact.html" class="Button">Contact Me</a>
+        </div>
+    </footer>
+</body>
+</html>

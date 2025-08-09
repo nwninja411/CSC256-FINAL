@@ -1,0 +1,152 @@
+
+/* Here I am setting up the fonts I will be using for this webpage. */
+@font-face {
+/*Here I am naming my font so that I can refernce it*/
+font-family: 'LemonMilk';
+/*Here I am linking my font file so that when I refernce it it knows what the font looks like*/
+src: url('lemon_milk/LEMONMILK-Light.otf') format('opentype');
+/*these tags let the code know that the style and weight should be normal rather than bold or italic*/
+font-weight: normal; 
+font-style: normal; 
+}
+
+@font-face {
+/*Here I am naming my font so that I can refernce it*/
+font-family: 'Belgiano';
+/*Here I am linking my font file so that when I refernce it it knows what the font looks like*/
+src: url('belgiano_serif/Belgiano Serif 2.ttf') format('truetype');
+/*these tags let the code know that the style and weight should be normal rather than bold or italic*/
+font-weight: normal; 
+font-style: normal; 
+}
+
+body{
+    margin: 0 auto;
+}
+
+/* NAVIGATION BAR */
+nav{
+    display: flex;
+    align-items: center;
+    background-color: #333;
+}
+
+nav .Button{
+    border: solid 1px white;
+    font-size: 1rem;
+    margin: 5px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-family: 'LemonMilk', serif;
+    transition: background-color 0.3s;
+}
+
+nav .Button:hover{
+    background-color: #1d1d1d;
+}
+
+.Logo{
+    width: clamp(110px, 12vw, 180px);
+    height: auto;
+    margin-right:auto;
+    padding: 10px;
+}
+
+/* HEADER */
+header{
+    background-color: #333;
+    text-align: center;
+    font-size: 2.2em;
+    color: white;
+    font-family: 'LemonMilk', serif;
+}
+
+header h1{
+    margin-top: -10px;
+    padding-bottom: 60px;
+}
+
+/* FILTER SECTION */
+#Filter{
+    text-align:center;
+    margin:24px auto 8px;
+    max-width:1200px;
+    padding-bottom: 24px;
+}
+
+.Button, .FilterBtn{
+    display:inline-block;
+    padding:10px 18px;
+    background:#333;
+    color:#fff;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-family: 'LemonMilk', serif;
+    transition:background-color .3s, transform .15s;
+}
+
+#Filter :hover{
+    background-color: #252525;
+    transform: scale(1.1);
+}
+
+.hidden { display: none !important; }
+
+.FilterBtn.active {
+  background: #222;
+  transform: translateY(-1px);
+}
+
+/* GALLERY SECTION */
+#Gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    align-items: center;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.GalItem video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    justify-content: center;
+}
+
+p {
+    width: 100%;
+    text-align: center;
+    font-family: monospace;
+    padding-bottom: 30px;
+    font-size: 1.4em;
+}
+
+/* FOOTER SECTION */
+.ContactMe, .Button{
+    display:inline-block;
+    background:#333;
+    color:#fff;
+    border: solid 1px white;
+    border-radius:6px;
+    text-decoration: none;
+    cursor:pointer;
+    font-family: 'LemonMilk', serif;
+    transition:background-color .3s, transform .15s;
+}
+
+#ContactMe .Button:hover{
+    background-color: #252525;
+    transform: scale(1.1);
+}
+
+footer{
+    text-align: center;
+    background-color: #333;
+    font-family: 'LemonMilk', serif;
+    padding: 20px;
+    color: white;
+    padding-bottom: 40px;
+}
